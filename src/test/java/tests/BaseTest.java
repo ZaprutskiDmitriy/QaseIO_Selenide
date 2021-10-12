@@ -1,7 +1,10 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class BaseTest {
 
@@ -22,5 +25,10 @@ public class BaseTest {
 //        All clicks using JS
         Configuration.clickViaJs = false;
 
+    }
+
+    @AfterMethod
+    public void afterTest() {
+        getWebDriver().quit();
     }
 }

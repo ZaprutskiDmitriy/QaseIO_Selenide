@@ -12,7 +12,7 @@ public class CaseTest extends BaseTest {
     public void testCaseShouldBeCreated() {
 
         new LoginPage()
-//                .open()
+                .open()
                 .login("zaprutsciy@mail.ru", "fE25hPhVXiu8xiM")
                 .openProject("AQA_Project")
                 .clickNewTestCase()
