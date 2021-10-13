@@ -15,7 +15,7 @@ public class ProjectTest extends BaseTest {
 
         new LoginPage()
                 .open()
-                .login("zaprutsciy@mail.ru", "fE25hPhVXiu8xiM")
+                .login(user, password)
                 .create(projectName, "", "Description", "Public")
                 .validateName(projectName);
     }
