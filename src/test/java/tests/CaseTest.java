@@ -13,7 +13,7 @@ public class CaseTest extends BaseTest {
 
         new LoginPage()
                 .open()
-                .login("zaprutsciy@mail.ru", "fE25hPhVXiu8xiM")
+                .login(user, password)
                 .openProject("AQA_Project")
                 .clickNewTestCase()
                 .isOpened();
