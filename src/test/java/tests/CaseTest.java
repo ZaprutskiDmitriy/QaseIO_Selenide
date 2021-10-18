@@ -1,7 +1,10 @@
 package tests;
 
+import models.TestCase;
+import models.TestCaseFactory;
 import org.testng.annotations.Test;
 import pages.LoginPage;
+import pages.TestCasePage;
 
 public class CaseTest extends BaseTest {
 
@@ -11,8 +14,16 @@ public class CaseTest extends BaseTest {
         new LoginPage()
                 .open()
                 .login("zaprutsciy@mail.ru", "fE25hPhVXiu8xiM")
-                .openProject("AQA_Project");
+                .openProject("AQA_Project")
+                .clickNewTestCase()
+                .isOpened();
 
+        TestCase testCase = TestCaseFactory.get();
 
+        new TestCasePage()
+                .createTestCase(testCase)
+                .clickSaveTestCase()
+                .isOpened()
+                .validateCaseName(testCase.getTitle());
     }
 }

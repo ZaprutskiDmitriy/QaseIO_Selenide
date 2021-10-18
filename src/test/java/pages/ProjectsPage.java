@@ -14,6 +14,9 @@ public class ProjectsPage {
     }
 
     public ProjectDetailsPage create(String projectName, String projectCode, String description, String accessType) {
+
+        $("a#createButton").click();
+
         $("#inputTitle").sendKeys(projectName);
         if(StringUtils.isNotEmpty(projectCode)) {
             $("#inputCode").sendKeys(projectCode);
