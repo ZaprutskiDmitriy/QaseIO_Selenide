@@ -1,5 +1,6 @@
 package tests;
 
+import models.Project;
 import models.TestCase;
 import models.TestCaseFactory;
 import org.testng.annotations.Test;
