@@ -18,17 +18,20 @@ public class SuiteApiTest extends BaseTest {
                 title("Suite#1").
                 build();
 
-        Suite suite2 = Suite.builder().
-                title("Suite#2").
-                build();
 
         projectAdapter.create(project);
         suiteAdapter.create(suite1, project.getCode());
         Suite actualSuite = suiteAdapter.get(project.getCode(), 1);
         System.out.println(actualSuite);
-//        suiteAdapter.update(suite2, project.getCode(), actualSuite.getId());
-//        Suite newActualSuite = suiteAdapter.get(project.getCode(), actualSuite.getId());
-//        System.out.println(newActualSuite);
+
+        Suite suite2 = Suite.builder().
+                title("Suite#2").
+                id(actualSuite.getId()).
+                build();
+
+        suiteAdapter.update(suite2, project.getCode(), actualSuite.getId());
+        Suite newActualSuite = suiteAdapter.get(project.getCode(), actualSuite.getId());
+        System.out.println(newActualSuite);
         suiteAdapter.delete(project.getCode(), actualSuite.getId());
         projectAdapter.delete(project.getCode());
     }

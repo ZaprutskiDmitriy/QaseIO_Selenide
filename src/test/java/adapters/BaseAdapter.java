@@ -15,6 +15,7 @@ public class BaseAdapter {
                 header("Content-Type", "application/json").
                 header("Token", "aeb945e5747fba275e526fe98c404806f541b9ca").
                 body(body).
+                log().all().
         when().
                 post(BASE_URL + uri).
         then().
@@ -26,6 +27,7 @@ public class BaseAdapter {
         given().
                 header("Content-Type", "application/json").
                 header("Token", "aeb945e5747fba275e526fe98c404806f541b9ca").
+                log().all().
         when().
                 delete(BASE_URL + uri).
         then().
@@ -38,6 +40,7 @@ public class BaseAdapter {
                 given().
                         header("Content-Type", "application/json").
                         header("Token", "aeb945e5747fba275e526fe98c404806f541b9ca").
+                        log().all().
                 when().
                         get(BASE_URL + uri).
                 then().
@@ -52,6 +55,7 @@ public class BaseAdapter {
                 header("Content-Type", "application/json").
                 header("Token", "aeb945e5747fba275e526fe98c404806f541b9ca").
                 body(body).
+                log().all().
         when().
                 patch(BASE_URL + uri).
         then().
