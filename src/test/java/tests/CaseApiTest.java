@@ -24,10 +24,6 @@ public class CaseApiTest extends BaseTest {
                 suiteId(1).
                 build();
 
-        Case case2 = Case.builder().
-                title("Case#2").
-                build();
-
         projectAdapter.create(project);
         suiteAdapter.create(suite1, project.getCode());
         Suite actualSuite = suiteAdapter.get(project.getCode(), 1);
@@ -35,9 +31,15 @@ public class CaseApiTest extends BaseTest {
         caseAdapter.create(case1, project.getCode());
         Case actualCase = caseAdapter.get(project.getCode(), 1);
         System.out.println(actualCase);
-//        caseAdapter.update(case2, project.getCode(), actualCase.getId());
-//        Case newActualCase = caseAdapter.get(project.getCode(), actualCase.getId());
-//        System.out.println(newActualCase);
+
+        Case case2 = Case.builder().
+                title("Case#2").
+                id(actualCase.getId()).
+                build();
+
+        caseAdapter.update(case2, project.getCode(), actualCase.getId());
+        Case newActualCase = caseAdapter.get(project.getCode(), actualCase.getId());
+        System.out.println(newActualCase);
         caseAdapter.delete(project.getCode(), actualCase.getId());
         suiteAdapter.delete(project.getCode(), actualSuite.getId());
         projectAdapter.delete(project.getCode());
